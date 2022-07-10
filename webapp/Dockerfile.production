@@ -14,5 +14,5 @@ RUN apt-get update --no-install-recommends && \
   pip install pipenv && \
   pipenv install --system --ignore-pipfile
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
+COPY docker-entrypoint.production.sh /docker-entrypoint.production.sh
+RUN chmod +x /docker-entrypoint.production.sh

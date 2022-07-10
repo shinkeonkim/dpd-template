@@ -1,0 +1,26 @@
+version: '3'
+services:
+  webapp:
+    volumes:
+      - ./webapp:/usr/src/app
+    build:
+      context: ./webapp
+      dockerfile: ./Dockerfile
+    image: webapp-dev-image
+    container_name: webapp-dev-container
+    entrypoint:
+      - /docker-entrypoint.sh
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: ./Dockerfile
+    image: nginx-dev-image
+    container_name: nginx-dev-container
+    ports:
+      - 50000:80
+    depends_on:
+      - webapp
+    links:
+      - webapp
+    entrypoint:
+      - /docker-entrypoint.sh

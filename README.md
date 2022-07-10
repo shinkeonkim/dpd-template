@@ -1,10 +1,13 @@
 # DPD
 
-## Dependecies
+## Usage
 
+development
 ```
-$ brew install pipenv
-$ pipenv install
-$ pipenv install {package_name}
-$ pipenv uninstall {package_name}
+docker-compose up -d --build
+```
+
+production
+```
+docker-compose -f docker-compose.production.yml up -d --build
 ```
